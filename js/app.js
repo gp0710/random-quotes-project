@@ -1,5 +1,6 @@
 //immediate invoked function expression
 (function() {
+  //array of quotes
   const quotes = [
     {
       quote:
@@ -32,6 +33,7 @@
     }
   ];
 
+  /*
   const btn = document.getElementById("generate-btn");
 
   btn.addEventListener("click", function() {
@@ -41,4 +43,17 @@
     document.getElementById("quote").textContent = quotes[random].quote;
     document.querySelector(".author").textContent = quotes[random].author;
   });
+  */
+
+  const btn = document.querySelector('button');
+  const quotess = document.querySelector('#quote');
+  const author = document.querySelector('.quote-author')
+
+  function generateQuote() {
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    quotess.textContent = quotes[randomIndex].quote;
+    author.textContent = quotes[randomIndex].author;
+  }
+
+  btn.addEventListener('click', generateQuote);
 })();
